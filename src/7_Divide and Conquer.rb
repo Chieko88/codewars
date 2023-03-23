@@ -14,5 +14,6 @@ def div_con(x)
     integer += n
   end
 
+
   return integer - string
 end

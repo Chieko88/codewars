@@ -17,3 +17,7 @@ def div_con(x)
 
   return integer - string
 end
+
+def div_con(x)
+  x.sum { |i| i.is_a?(String) ? -(i.to_i) : i }
+end

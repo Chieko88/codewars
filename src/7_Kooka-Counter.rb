@@ -14,4 +14,24 @@
 
 def kooka_counter(laughing)
   #your code here
+  if laughing.empty?
+    return 0
+  end
+
+  birds = laughing.split("a")
+  current_bird = birds[0]
+  count = 1
+  birds.each do |c|
+    if c != current_bird
+      count += 1
+      current_bird = c
+    end
+  end
+  count
+end
+
+def kooka_counter(laughing)
+  laughing.delete! "a"
+  laughing.squeeze!
+  laughing.length
 end

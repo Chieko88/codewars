@@ -1,17 +1,18 @@
 def find_even_index(arr)
   #your code here
-  left_index = arr.size - 1
-  right_index = 0
-
-  sum_left = 0
-  sum_right = 0
-
-  until sum_left == sum_right
-    sum_left += arr[left_index]
-    sum_right += arr[right_index]
+  l_sums = arr.clone
+  r_sums = arr.clone
+  for i in 1...arr.length
+    l_sums[i] += l_sums[i - 1]
   end
-  puts sum_left
-  puts sum_right
-end
+  for i in (arr.length - 2).downto(0)
+    r_sums[i] += r_sums[i + 1]
+  end
 
-find_even_index([1,2,3,4,3,2,1])
+  for i in 0...arr.length
+    if l_sums[i] == r_sums[i]
+      return i
+    end
+  end
+  return -1
+end
